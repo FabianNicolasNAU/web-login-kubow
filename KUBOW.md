@@ -1,6 +1,6 @@
 ![](documents/Kubow/kubow-logo-right.png)
 
-Frist run minikube in your pc:
+To run kubow, frist run minikube in your pc:
 
 ```
 minikube delete
