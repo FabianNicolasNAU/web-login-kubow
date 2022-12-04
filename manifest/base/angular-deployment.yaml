@@ -22,7 +22,7 @@ spec:
         - env:
             - name: NODE_ENV
               value: dev
-          image: nitin27may/mean-angular:latest
+          image: nau1/mean-angular:latest
           imagePullPolicy: IfNotPresent
           name: mean-angular
           ports:
