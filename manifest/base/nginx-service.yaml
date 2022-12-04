@@ -4,7 +4,7 @@ metadata:
   labels:
     io.kompose.service: nginx
   name: nginx
-  namespace: mean
+  #namespace: mean
 spec:
   allocateLoadBalancerNodePorts: true
   externalTrafficPolicy: Cluster

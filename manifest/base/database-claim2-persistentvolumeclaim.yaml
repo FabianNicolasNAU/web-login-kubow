@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  namespace: mean
+  #namespace: mean
   creationTimestamp: null
   labels:
-    io.kompose.service: database-claim1
-  name: database-claim1
+    io.kompose.service: database-claim2
+  name: database-claim2
 spec:
   accessModes:
     - ReadWriteOnce

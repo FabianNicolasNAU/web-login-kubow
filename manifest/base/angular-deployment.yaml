@@ -1,29 +1,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: mean
+  #namespace: mean
   creationTimestamp: null
   labels:
-    io.kompose.service: nginx
-  name: nginx
+    io.kompose.service: angular
+  name: angular
 spec:
   replicas: 1
   selector:
     matchLabels:
-      io.kompose.service: nginx
+      io.kompose.service: angular
   strategy: {}
   template:
     metadata:
       creationTimestamp: null
       labels:
-        io.kompose.service: nginx
+        io.kompose.service: angular
     spec:
       containers:
-        - image: nitin27may/mean-nginx
+        - env:
+            - name: NODE_ENV
+              value: dev
+          image: nitin27may/mean-angular:latest
           imagePullPolicy: IfNotPresent
-          name: mean-nginx
+          name: mean-angular
           ports:
-            - containerPort: 80
+            - containerPort: 4000
           resources: {}
       restartPolicy: Always
 status: {}
