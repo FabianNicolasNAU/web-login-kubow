@@ -12,7 +12,7 @@ resources:
   ##Express
   - express-deployment.yaml
   - express-service.yaml
-    #Nginx
+  #Nginx
   - nginx-deployment.yaml
   - nginx-service.yaml
   #Angular

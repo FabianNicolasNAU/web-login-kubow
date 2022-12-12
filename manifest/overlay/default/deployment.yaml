@@ -1,11 +1,19 @@
+# This file defines a Kubernetes Deployment.
 apiVersion: apps/v1
 kind: Deployment
+
+# The metadata for the Deployment, including its labels and name.
 metadata:
   labels:
-    app: angular
-  name: angular
+    app: angular # The label for the Deployment
+  name: angular # The name of the Deployment
+
+# The specification for the Deployment, including its strategy.
 spec:
   strategy:
     rollingUpdate:
+      # The maximum number of Pods that can be created above the desired number during an update.
       maxSurge: "25%"
+
+      # The maximum number of Pods that can be unavailable during an update.
       maxUnavailable: "25%"

@@ -1,6 +1,11 @@
+# This file defines a Kubernetes resource called Kustomization.
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+
+# The patches to apply to the deployment.
 patchesStrategicMerge:
-- deployment.yaml
+  - deployment.yaml
+
+# The base directories that contain the resources to include in the deployment.
 bases:
-- ../../base
+  - ../../base

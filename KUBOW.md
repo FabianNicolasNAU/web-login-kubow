@@ -21,6 +21,7 @@ To run kubow, frist run minikube in your pc:
 ```
 minikube delete
 minikube start --cpus=5 --memory=8192 --vm-driver hyperv --kubernetes-version=v1.16.10
+minikube start --cpus=5 --vm-driver hyperv --kubernetes-version=v1.16.10
 ```
 
 to run the aplication run this in the command line:
