@@ -31,3 +31,11 @@ kubectl apply -k ./Kubow/tools/monitoring/
 kubectl apply -k ./manifest/overlay/default/
 kubectl apply -k ./Kubow/overlay/
 ```
+
+### query prometheus in K8s
+
+kubectl port-forward pod/prometheus-558fb88dd5-w7ttl 9090:9090
+
+### Grafana
+
+kubectl port-forward pod/grafana-b659fcdd9-rx9bj 3000:3000

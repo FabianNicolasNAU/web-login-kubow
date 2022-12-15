@@ -6,12 +6,12 @@ metadata:
   name: nginx
   #namespace: mean
 spec:
-  #allocateLoadBalancerNodePorts: true
+  allocateLoadBalancerNodePorts: true
   externalTrafficPolicy: Cluster
-  #internalTrafficPolicy: Cluster
-  #ipFamilies:
-  #  - IPv4
-  #ipFamilyPolicy: SingleStack
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+    - IPv4
+  ipFamilyPolicy: SingleStack
   ports:
     - nodePort: 32306
       port: 80

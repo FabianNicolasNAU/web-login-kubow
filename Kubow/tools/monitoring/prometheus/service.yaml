@@ -1,21 +1,13 @@
-# This file defines a Kubernetes resource called Service. A Service is a logical set of Pods and a policy to access them.
 apiVersion: v1
 kind: Service
-
-# The metadata for the Service, including its name and labels. Labels are used to organize and filter Kubernetes resources.
 metadata:
-  name: prometheus # The name of the Service
+  name: prometheus
   labels:
-    app: prometheus # The label for the Service
-
-# The specification for the Service, including its ports and Pod selector.
+    app: prometheus
 spec:
-  # The ports exposed by the Service and where traffic is directed in the Pods.
   ports:
-    - port: 9090 # The port exposed by the Service
-      targetPort: 9090 # The port traffic is directed to in the Pods
-      protocol: TCP # The network protocol used
-
-  # The Pod selector used to select the Pods that traffic from the Service is directed to.
+    - port: 9090
+      targetPort: 9090
+      protocol: TCP
   selector:
-    app: prometheus # The label used to select Pods
+    app: prometheus
