@@ -1,0 +1,22 @@
+import kubernetes-family.acme;
+System LoginExampleSystem : KubernetesFam = new KubernetesFam extended with {
+
+    Component angularS : ServiceT = new ServiceT extended with {
+        Port apiPort  = { }
+        Property name = "angular";
+    }
+
+    Component angularD : DeploymentT = new DeploymentT extended with {
+        Port apiPort  = { }
+        Property namespace = "default";
+        Property name = "angular";
+    }
+    
+    Connector angularServiceConnector  = new LabelSelectorConnectorT extended with {
+        Property selectors = <[name : string = "io.kompose.service";value : string = "angular";]>;
+    }
+
+    Attachment angularD.apiPort to angularServiceConnector.caller;
+    Attachment angularS.apiPort to angularServiceConnector.callee;
+}
+

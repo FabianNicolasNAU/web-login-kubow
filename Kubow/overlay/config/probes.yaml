@@ -10,7 +10,7 @@ probes:
       args.0: "default"
       args.1: "login-example"
       args.2: "traffic"
-      args.3: 'sum (rate(http_requests_total{status="200"}[30s]))'
+      args.3: 'sum (rate(http_requests_total{status="200"}[5s]))'
 
   DeploymentPropertiesProbe:
     alias: deployments.default.login-example.probe

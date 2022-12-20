@@ -29,13 +29,18 @@ to run the aplication run this in the command line:
 kubectl apply -f ./MetaController/priorityObjectsK8s/
 kubectl apply -k ./Kubow/tools/monitoring/
 kubectl apply -k ./manifest/overlay/default/
+kubectl apply -f ./Kubow/tools/nginxc-ingress/
 kubectl apply -k ./Kubow/overlay/
 ```
 
 ### query prometheus in K8s
 
-kubectl port-forward pod/prometheus-558fb88dd5-w7ttl 9090:9090
+kubectl port-forward pod/prometheus-d4499d495-7snxn 9090:9090
 
 ### Grafana
 
-kubectl port-forward pod/grafana-b659fcdd9-rx9bj 3000:3000
+kubectl port-forward pod/grafana-b659fcdd9-dq5nl 3000:3000
+
+### Nginx-Ingress
+
+kubectl port-forward pod/nginx-7bdc4f88cb-hwrkv 80:80
