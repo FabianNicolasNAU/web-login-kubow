@@ -4,13 +4,12 @@ metadata:
   name: nginx-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-    - host: nginx
+    - host: nginx-ingress.default.svc
       http:
         paths:
           - path: /
             backend:
               serviceName: nginx
-              servicePort: 80
+              servicePort: 8080

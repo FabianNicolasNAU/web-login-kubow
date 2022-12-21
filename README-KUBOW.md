@@ -31,11 +31,15 @@ kubectl apply -k ./Kubow/tools/monitoring/
 kubectl apply -k ./manifest/overlay/default/
 kubectl apply -f ./Kubow/tools/nginxc-ingress/
 kubectl apply -k ./Kubow/overlay/
+
+
+kubectl apply -k ./Kubow/tools/k6/
+kubectl delete -k ./Kubow/tools/k6/
 ```
 
 ### query prometheus in K8s
 
-kubectl port-forward pod/prometheus-d4499d495-7snxn 9090:9090
+kubectl port-forward pod/prometheus-d4499d495-k8fj9 9090:9090
 
 ### Grafana
 
@@ -43,4 +47,4 @@ kubectl port-forward pod/grafana-b659fcdd9-dq5nl 3000:3000
 
 ### Nginx-Ingress
 
-kubectl port-forward pod/nginx-7bdc4f88cb-hwrkv 80:80
+kubectl port-forward pod/nginx-ingress-7f5885d87c-tzc7c 80:80

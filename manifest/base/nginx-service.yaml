@@ -4,20 +4,13 @@ metadata:
   labels:
     io.kompose.service: nginx
   name: nginx
-  #namespace: mean
 spec:
-  #allocateLoadBalancerNodePorts: true
-  externalTrafficPolicy: Cluster
-  #internalTrafficPolicy: Cluster
-  #ipFamilies:
-  #  - IPv4
-  #ipFamilyPolicy: SingleStack
   ports:
-    - nodePort: 32306
-      port: 80
-      protocol: TCP
+    - name: http
+      port: 8080
       targetPort: 80
+      protocol: TCP
+      nodePort: 32306
   selector:
     io.kompose.service: nginx
-  sessionAffinity: None
   type: LoadBalancer

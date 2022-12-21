@@ -17,6 +17,9 @@ spec:
       creationTimestamp: null
       labels:
         io.kompose.service: nginx
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "9113"
     spec:
       containers:
         - image: nau1/mean-nginx
@@ -24,6 +27,8 @@ spec:
           name: mean-nginx
           ports:
             - containerPort: 80
+            - name: exporter
+              containerPort: 9113
           resources: {}
       restartPolicy: Always
 status: {}

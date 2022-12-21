@@ -15,6 +15,7 @@ resources:
   #Nginx
   - nginx-deployment.yaml
   - nginx-service.yaml
+  - nginx-ingress.yaml
   #Angular
   - angular-deployment.yaml
   - angular-service.yaml
