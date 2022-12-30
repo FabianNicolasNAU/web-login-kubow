@@ -38,7 +38,7 @@ export default function () {
   const T = 2;
 
   for (let i = 0; i < 2; i++) {
-    const res = http.get('http://172.18.171.147:32306/login');
+    const res = http.get('http://172.18.175.226:31659/');
     check(res, {
       "is status 200": r => r.status === 200
     });

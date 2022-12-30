@@ -39,7 +39,7 @@ kubectl delete -k ./Kubow/tools/k6/
 
 ### query prometheus in K8s
 
-kubectl port-forward pod/prometheus-d4499d495-k8fj9 9090:9090
+kubectl port-forward pod/prometheus-d4499d495-jkg7g 9090:9090
 
 ### Grafana
 

@@ -16,7 +16,61 @@ System LoginExampleSystem : KubernetesFam = new KubernetesFam extended with {
         Property selectors = <[name : string = "io.kompose.service";value : string = "angular";]>;
     }
 
+    Component nginxS : ServiceT = new ServiceT extended with {
+        Port apiPort  = { }
+        Property name = "nginx";
+    }
+    Component nginxD : DeploymentT = new DeploymentT extended with {
+        Port apiPort  = { }
+        Property namespace = "default";
+        Property name = "nginx";
+    }
+    Connector nginxServiceConnector  = new LabelSelectorConnectorT extended with {
+        Property selectors = <[name : string = "io.kompose.service";value : string = "nginx";]>;
+    }
+
+    Component expressS : ServiceT = new ServiceT extended with {
+        Port apiPort  = { }
+        Property name = "express";
+    }
+    Component expressD : DeploymentT = new DeploymentT extended with {
+        Port apiPort  = { }
+        Port sqlPort  = { }
+        Property namespace = "default";
+        Property name = "express";
+    }
+
+    Connector expressServiceConnector  = new LabelSelectorConnectorT extended with {
+        Property selectors = <[name : string = "io.kompose.service";value : string = "express";]>;
+    }
+
+    Component databaseS : ServiceT = new ServiceT extended with {
+        Port sqlPort  = { }
+        Port connectionSqlPort  = { }
+        Property name = "database";
+    }
+    Component databaseD : DeploymentT = new DeploymentT extended with {
+        Port sqlPort  = { }
+        Property namespace = "default";
+        Property name = "database";
+    }
+    Connector dbConnection  = new ServiceConnectorT extended with {
+        Property namespace = "default";
+        Property name = "database";
+    }
+    Connector dbServiceConnector  = new ServiceConnectorT extended with {
+        Property selectors = <[name : string = "app";value : string = "database";]>;
+    }
+
     Attachment angularD.apiPort to angularServiceConnector.caller;
     Attachment angularS.apiPort to angularServiceConnector.callee;
+    Attachment nginxD.apiPort to nginxServiceConnector.caller;
+    Attachment nginxS.apiPort to nginxServiceConnector.callee;
+    Attachment expressD.apiPort to expressServiceConnector.caller;
+    Attachment expressS.apiPort to expressServiceConnector.callee;
+    Attachment databaseD.sqlPort to dbServiceConnector.selectee;
+    Attachment databaseS.sqlPort to dbServiceConnector.selector;
+    Attachment databaseS.connectionSqlPort to expressServiceConnector.callee;
+    attachment express.sqlPort to expressServiceConnector.caller;
 }
 

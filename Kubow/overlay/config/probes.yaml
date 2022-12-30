@@ -5,12 +5,12 @@ probes:
     type: java
     javaInfo:
       class: br.unifor.kubow.probes.PrometheusProbe
-      period: 5000
+      period: 3000
       args.length: 4
       args.0: "default"
       args.1: "login-example"
       args.2: "traffic"
-      args.3: 'sum (rate(http_requests_total{status="200"}[5s]))'
+      args.3: 'sum (rate(http_requests_total{status="200"}[3s]))'
 
   DeploymentPropertiesProbe:
     alias: deployments.default.login-example.probe
@@ -18,7 +18,7 @@ probes:
     type: java
     javaInfo:
       class: br.unifor.kubow.probes.DeploymentInfoProbe
-      period: 5000
+      period: 3000
       args.length: 2
       args.0: "default"
       args.1: "login-example"
